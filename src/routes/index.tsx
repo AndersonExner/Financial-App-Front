@@ -15,9 +15,24 @@ export const AppRoutes = () => {
             },
             {
                 label: "Dashboard",
-                icon: "home",
+                icon: "show_chart",
                 path: "/dashboard"
             },
+            {
+                label: "Settings",
+                icon: "manage_accounts",
+                path: "/settings"
+            },
+            {
+                label: "Settings",
+                icon: "settings",
+                path: "/settings"
+            },
+            {
+                label: "Logout",
+                icon: "logout",
+                path: "/logout"
+            }
         ]);
     }, []);
 

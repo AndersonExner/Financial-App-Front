@@ -24,7 +24,7 @@ interface IAppMenuContextDataProps {
 };
 
 export const AppMenuProvider: React.FC<IAppMenuContextDataProps> = ({ children }) => {
-    const [isOpen, setAppMenuOpen] = useState(false);
+    const [isOpen, setAppMenuOpen] = useState(true);
     const [options, setAppMenuOptions] = useState<IAppMenuOptions[]>([]);
 
     const toogleAppMenuOpen = useCallback(() => {

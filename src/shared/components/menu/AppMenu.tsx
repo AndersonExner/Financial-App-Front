@@ -2,7 +2,6 @@ import { Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListIte
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { useAppMenuContext } from '../../contexts';
-import { blue } from '@mui/material/colors';
 
 interface IAppMenuItemProps {
     label: string;
@@ -42,12 +41,13 @@ interface IAppMenuProps {
 export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
     
     const { isOpen, options, toogleAppMenuOpen } = useAppMenuContext();
+
     return (
         <>
             <Drawer open={isOpen} onClose={toogleAppMenuOpen}>
                 <Box width={300} display={'flex'} flexDirection={'column'} height={'100%'}>
 
-                    <Box width="100%" height={'20%'} display="flex" alignItems="center" justifyContent="center" bgcolor={blue}>  
+                    <Box width="100%" height={'20%'} display="flex" alignItems="center" justifyContent="center">  
                         <h1>Avatar</h1>
                     </Box>
 
