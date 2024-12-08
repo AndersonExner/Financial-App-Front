@@ -1,8 +1,23 @@
 import React from 'react';
 
+import { AppMenu } from './shared/components';
+import { AppRoutes } from './routes';
+import { AppMenuProvider } from './shared/contexts';
+import { BrowserRouter } from 'react-router-dom';
+
 export const App = () => {
   return (
-    <h1>teste</h1>
+    <AppMenuProvider>
+
+      <BrowserRouter>
+
+        <AppMenu>
+          <AppRoutes />
+        </AppMenu>
+        
+      </BrowserRouter>
+
+    </AppMenuProvider>
   );
 };
 
