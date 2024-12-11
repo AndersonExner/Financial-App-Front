@@ -1,7 +1,7 @@
-import { Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-import { useAppMenuContext } from '../../contexts';
+import { useAppMenuContext, useAppThemeContext } from '../../contexts';
 
 interface IAppMenuItemProps {
     label: string;
@@ -40,15 +40,19 @@ interface IAppMenuProps {
 
 export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
     
+    const theme = useTheme();
+    const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+
     const { isOpen, options, toogleAppMenuOpen } = useAppMenuContext();
+    const { toggleTheme } = useAppThemeContext();
 
     return (
         <>
-            <Drawer open={isOpen} onClose={toogleAppMenuOpen}>
-                <Box width={300} display={'flex'} flexDirection={'column'} height={'100%'}>
+            <Drawer open={isOpen} variant={smDown ? 'temporary' : 'permanent'} onClose={toogleAppMenuOpen}>
+                <Box width={theme.spacing(28)} display={'flex'} flexDirection={'column'} height={'100%'}>
 
-                    <Box width="100%" height={'20%'} display="flex" alignItems="center" justifyContent="center">  
-                        <h1>Avatar</h1>
+                    <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">  
+                        <Avatar sx={{ height:theme.spacing(12), width:theme.spacing(12)}}/>
                     </Box>
 
                     <Divider />
@@ -66,11 +70,22 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
                             ))}
                         </List>
                     </Box>
+
+                    <Box>
+                        <List>
+                            <ListItemButton>
+                                <ListItemIcon>
+                                    <Icon>logout</Icon>
+                                </ListItemIcon>
+                                <ListItemText primary="LogOut" />
+                            </ListItemButton>
+                        </List>
+                    </Box>
                 </Box>
 
             </Drawer>
-            <Box height="100vh" marginLeft="30vw">
-                { children}
+            <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
+                { children }
             </Box>
         </>
     );

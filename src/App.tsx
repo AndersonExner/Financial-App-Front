@@ -2,22 +2,24 @@ import React from 'react';
 
 import { AppMenu } from './shared/components';
 import { AppRoutes } from './routes';
-import { AppMenuProvider } from './shared/contexts';
+import { AppMenuProvider, AppThemeProvider } from './shared/contexts';
 import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {
   return (
-    <AppMenuProvider>
+    <AppThemeProvider>
+      <AppMenuProvider>
 
-      <BrowserRouter>
+        <BrowserRouter>
 
-        <AppMenu>
-          <AppRoutes />
-        </AppMenu>
-        
-      </BrowserRouter>
+          <AppMenu>
+            <AppRoutes />
+          </AppMenu>
+          
+        </BrowserRouter>
 
-    </AppMenuProvider>
+      </AppMenuProvider>
+    </AppThemeProvider>
   );
 };
 

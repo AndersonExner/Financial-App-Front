@@ -27,18 +27,13 @@ export const AppRoutes = () => {
                 label: "Settings",
                 icon: "settings",
                 path: "/settings"
-            },
-            {
-                label: "Logout",
-                icon: "logout",
-                path: "/logout"
             }
         ]);
     }, []);
 
     return (
         <Routes>
-            <Route path="/" element={<h1>home</h1>} />
+            <Route path="/" element={null} />
             <Route path="/dashboard" element={<h1>dashboard</h1>} />
         </Routes>
     );   
