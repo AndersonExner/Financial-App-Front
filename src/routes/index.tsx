@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-import { useAppMenuContext } from "../shared/contexts";
+import { useAppMenuContext } from "../shared/Contexts";
 import { Route, Routes } from "react-router-dom";
 
 export const AppRoutes = () => {
@@ -19,7 +19,7 @@ export const AppRoutes = () => {
                 path: "/dashboard"
             },
             {
-                label: "Settings",
+                label: "Accounts",
                 icon: "manage_accounts",
                 path: "/settings"
             },
@@ -34,7 +34,7 @@ export const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/" element={null} />
-            <Route path="/dashboard" element={<h1>dashboard</h1>} />
+            <Route path="/dashboard" element={null} />
         </Routes>
     );   
 };

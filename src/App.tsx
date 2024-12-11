@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { AppMenu } from './shared/components';
-import { AppRoutes } from './routes';
-import { AppMenuProvider, AppThemeProvider } from './shared/contexts';
+import { AppRoutes } from './Routes';
+import { AppMenuProvider, AppThemeProvider } from './shared/Contexts';
 import { BrowserRouter } from 'react-router-dom';
 
 export const App = () => {

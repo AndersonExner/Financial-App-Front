@@ -1,1 +1,1 @@
-export * from './menu/AppMenu';
+export * from './AppMenu/AppMenu';

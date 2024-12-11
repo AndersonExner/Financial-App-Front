@@ -1,7 +1,8 @@
 import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-import { useAppMenuContext, useAppThemeContext } from '../../contexts';
+import { useAppMenuContext, useAppThemeContext } from '../../Contexts';
+import { TopBar } from '../TopBar/TopBar';
 
 interface IAppMenuItemProps {
     label: string;
@@ -48,7 +49,7 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
 
     return (
         <>
-            <Drawer open={isOpen} variant={smDown ? 'temporary' : 'permanent'} onClose={toogleAppMenuOpen}>
+            <Drawer open={isOpen} variant={'permanent'} onClose={toogleAppMenuOpen} anchor='left'>
                 <Box width={theme.spacing(28)} display={'flex'} flexDirection={'column'} height={'100%'}>
 
                     <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">  
@@ -85,6 +86,7 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
 
             </Drawer>
             <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
+                <TopBar />
                 { children }
             </Box>
         </>
