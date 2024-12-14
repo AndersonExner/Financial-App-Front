@@ -2,8 +2,7 @@ import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon,
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { useAppMenuContext, useAppThemeContext } from '../../contexts';
-import { TopBar } from '../TopBar/TopBar';
-
+import { TopBar } from '../topBar/TopBar';
 
 interface IAppMenuItemProps {
     label: string;
@@ -40,27 +39,42 @@ interface IAppMenuProps {
     children: React.ReactNode;
 }
 
-export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
-    
+export const AppMenu: React.FC<IAppMenuProps> = ({ children }) => {
     const theme = useTheme();
-
+    const smDown = useMediaQuery(theme.breakpoints.down('sm'));
     const { isOpen, options, toogleAppMenuOpen } = useAppMenuContext();
     const { toggleTheme } = useAppThemeContext();
 
     return (
         <>
-            <Drawer open={isOpen} variant={'permanent'} onClose={toogleAppMenuOpen} anchor='left'>
-                <Box width={isOpen ? theme.spacing(28) : theme.spacing(10)} display={'flex'} flexDirection={'column'} height={'100%'}>
-                    <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">
-                        {/* <Avatar sx={{ height:theme.spacing(12), width:theme.spacing(12)}}/> */}
+            <Drawer
+                open={isOpen}
+                variant={smDown ? 'temporary' : 'permanent'}
+                onClose={toogleAppMenuOpen}
+                anchor='left'
+            >
+                <Box
+                    width={isOpen ? theme.spacing(28) : theme.spacing(10)}
+                    display={'flex'}
+                    flexDirection={'column'}
+                    height={'100%'}
+                >
+                    <Box
+                        width="100%"
+                        height={theme.spacing(20)}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        {/* <Avatar sx={{ height: theme.spacing(12), width: theme.spacing(12) }} /> */}
                     </Box>
 
                     <Divider />
 
                     <Box flex={1}>
-                        <List component={'nav'} style={{ width: '100%'}} >
+                        <List component={'nav'} style={{ width: '100%' }}>
                             {options.map(item => (
-                                <AppMenuItem 
+                                <AppMenuItem
                                     key={item.path}
                                     label={item.label}
                                     icon={item.icon}
@@ -72,7 +86,7 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
                         </List>
                     </Box>
 
-                    <Box marginBottom={ theme.spacing(5) }>
+                    <Box marginBottom={theme.spacing(5)}>
                         <List>
                             <ListItemButton>
                                 <ListItemIcon style={{ marginLeft: theme.spacing(1) }}>
@@ -84,10 +98,17 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
                     </Box>
                 </Box>
             </Drawer>
-            <Box height="100vh" marginLeft={isOpen ? theme.spacing(28) : theme.spacing(10)}>
+            <Box
+                height="100vh"
+                marginLeft={isOpen ? theme.spacing(28) : theme.spacing(10)}
+                sx={{ transition: theme.transitions.create(['margin'], { easing: theme.transitions.easing.sharp, duration: theme.transitions.duration.leavingScreen }) }}
+                p={4}
+            >
                 <TopBar />
                 {children}
             </Box>
         </>
     );
 };
+
+export default AppMenu;

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 
 import { Route, Routes } from "react-router-dom";
 import { useAppMenuContext } from "../shared/contexts";
+import { Dashboard } from "../pages/dashboard/Dashboard";
 
 export const AppRoutes = () => {
     const { setAppMenuOptions } = useAppMenuContext();
@@ -33,7 +34,7 @@ export const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/dashboard" element={null} />
+            <Route path="/dashboard" element={< Dashboard />} />
             <Route path="/transactions" element={null} />
         </Routes>
     );   
