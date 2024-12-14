@@ -16,7 +16,7 @@ export const TopBar: React.FC = () => {
     return (
         <Toolbar variant='regular' sx={{ display: 'flex', justifyContent: 'space-between', backgroundColor: theme.palette.background.default }}>
             <IconButton onClick={toogleAppMenuOpen}> 
-                <Icon fontSize='large'>{isOpen ? 'menu' : 'menu_open'}</Icon>
+                <Icon fontSize='large'>{isOpen ? 'menu_open' : 'menu'}</Icon>
             </IconButton>
             <Box flexGrow={1} ml={4}>
                 <TextField

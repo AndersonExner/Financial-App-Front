@@ -8,13 +8,15 @@ interface IAppMenuItemProps {
     label: string;
     icon: string
     to: string;
+    showLabel: boolean;
     onClick: () => void | undefined;
 }
 
-const AppMenuItem: React.FC<IAppMenuItemProps> = ({ label, icon, to, onClick }) => {
+const AppMenuItem: React.FC<IAppMenuItemProps> = ({ label, icon, to, showLabel, onClick }) => {
     
     const navigate = useNavigate();
 
+    const theme = useTheme();
     const resolvedPath = useResolvedPath(to);
     const match = useMatch({ path: resolvedPath.pathname, end: false });
 
@@ -26,11 +28,11 @@ const AppMenuItem: React.FC<IAppMenuItemProps> = ({ label, icon, to, onClick }) 
     };
 
     return (
-        <ListItemButton onClick={handleClick} selected={!!match}>
-            <ListItemIcon>
+        <ListItemButton onClick={handleClick} selected={!!match} style={{ alignItems:"center", textAlign:"left" }}>
+            <ListItemIcon style={{ marginLeft: theme.spacing(1) }}>
                 <Icon>{icon}</Icon>
             </ListItemIcon>
-            <ListItemText primary={label} />
+            {showLabel && <ListItemText primary={label} />}
         </ListItemButton>
     );
 }
@@ -50,44 +52,43 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
     return (
         <>
             <Drawer open={isOpen} variant={'permanent'} onClose={toogleAppMenuOpen} anchor='left'>
-                <Box width={theme.spacing(28)} display={'flex'} flexDirection={'column'} height={'100%'}>
-
-                    <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">  
-                        <Avatar sx={{ height:theme.spacing(12), width:theme.spacing(12)}}/>
+                <Box width={isOpen ? theme.spacing(28) : theme.spacing(10)} display={'flex'} flexDirection={'column'} height={'100%'}>
+                    <Box width="100%" height={theme.spacing(20)} display="flex" alignItems="center" justifyContent="center">
+                        {/* <Avatar sx={{ height:theme.spacing(12), width:theme.spacing(12)}}/> */}
                     </Box>
 
                     <Divider />
 
                     <Box flex={1}>
-                        <List component={'nav'}>
+                        <List component={'nav'} style={{ width: '100%'}} >
                             {options.map(item => (
-                              <AppMenuItem
-                                key={item.path}
-                                label={item.label}
-                                icon={item.icon}
-                                to={item.path}
-                                onClick={toogleAppMenuOpen}
-                              />  
+                                <AppMenuItem 
+                                    key={item.path}
+                                    label={item.label}
+                                    icon={item.icon}
+                                    to={item.path}
+                                    onClick={toogleAppMenuOpen}
+                                    showLabel={isOpen}
+                                />
                             ))}
                         </List>
                     </Box>
 
-                    <Box>
+                    <Box marginBottom={ theme.spacing(5) }>
                         <List>
                             <ListItemButton>
-                                <ListItemIcon>
+                                <ListItemIcon style={{ marginLeft: theme.spacing(1) }}>
                                     <Icon>logout</Icon>
                                 </ListItemIcon>
-                                <ListItemText primary="LogOut" />
+                                {isOpen && <ListItemText primary="LogOut" />}
                             </ListItemButton>
                         </List>
                     </Box>
                 </Box>
-
             </Drawer>
-            <Box height="100vh" marginLeft={smDown ? 0 : theme.spacing(28)}>
+            <Box height="100vh" marginLeft={isOpen ? theme.spacing(28) : theme.spacing(10)}>
                 <TopBar />
-                { children }
+                {children}
             </Box>
         </>
     );
