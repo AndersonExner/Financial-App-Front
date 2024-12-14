@@ -1,15 +1,16 @@
 import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-import { useAppMenuContext, useAppThemeContext } from '../../Contexts';
+import { useAppMenuContext, useAppThemeContext } from '../../contexts';
 import { TopBar } from '../TopBar/TopBar';
+
 
 interface IAppMenuItemProps {
     label: string;
     icon: string
     to: string;
     showLabel: boolean;
-    onClick: () => void | undefined;
+    onClick: (() => void) | undefined;
 }
 
 const AppMenuItem: React.FC<IAppMenuItemProps> = ({ label, icon, to, showLabel, onClick }) => {
@@ -21,10 +22,8 @@ const AppMenuItem: React.FC<IAppMenuItemProps> = ({ label, icon, to, showLabel, 
     const match = useMatch({ path: resolvedPath.pathname, end: false });
 
     const handleClick = () => {
-        if (onClick) {
-            onClick();
-        }
         navigate(to);
+        onClick?.();
     };
 
     return (
@@ -44,7 +43,6 @@ interface IAppMenuProps {
 export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
     
     const theme = useTheme();
-    const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { isOpen, options, toogleAppMenuOpen } = useAppMenuContext();
     const { toggleTheme } = useAppThemeContext();
@@ -67,7 +65,7 @@ export const AppMenu : React.FC <IAppMenuProps> = ({ children }) => {
                                     label={item.label}
                                     icon={item.icon}
                                     to={item.path}
-                                    onClick={toogleAppMenuOpen}
+                                    onClick={undefined}
                                     showLabel={isOpen}
                                 />
                             ))}

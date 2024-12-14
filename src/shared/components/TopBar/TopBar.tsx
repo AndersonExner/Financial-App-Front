@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Icon, IconButton, TextField, Toolbar } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { useAppMenuContext } from '../../Contexts';
+import { useAppMenuContext } from '../../contexts';
 
 export const TopBar: React.FC = () => {
     const theme = useTheme();

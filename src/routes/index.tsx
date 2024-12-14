@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 
-import { useAppMenuContext } from "../shared/Contexts";
 import { Route, Routes } from "react-router-dom";
+import { useAppMenuContext } from "../shared/contexts";
 
 export const AppRoutes = () => {
     const { setAppMenuOptions } = useAppMenuContext();
@@ -9,14 +9,14 @@ export const AppRoutes = () => {
     useEffect(() => {
         setAppMenuOptions([
             {
-                label: "Home",
+                label: "Dashboard",
                 icon: "home",
-                path: "/home"
+                path: "/dashboard"
             },
             {
-                label: "Dashboard",
+                label: "Trasanctions",
                 icon: "show_chart",
-                path: "/dashboard"
+                path: "/transactions"
             },
             {
                 label: "Accounts",
@@ -33,8 +33,8 @@ export const AppRoutes = () => {
 
     return (
         <Routes>
-            <Route path="/" element={null} />
             <Route path="/dashboard" element={null} />
+            <Route path="/transactions" element={null} />
         </Routes>
     );   
 };
