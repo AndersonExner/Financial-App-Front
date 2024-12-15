@@ -14,7 +14,7 @@ export const TopBar: React.FC = () => {
     };
 
     return (
-        <Toolbar variant='regular' disableGutters sx={{ display: 'flex', marginBottom: theme.spacing(2) }}>
+        <Toolbar variant='regular' disableGutters sx={{ display: 'flex' }}>
             <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <IconButton onClick={toogleAppMenuOpen}>
                     <Icon fontSize='large'>{isOpen ? 'menu_open' : 'menu'}</Icon>

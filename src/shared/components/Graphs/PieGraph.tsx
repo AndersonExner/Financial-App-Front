@@ -1,17 +1,19 @@
 import React from "react";
 import { PieChart } from '@mui/x-charts/PieChart';
-import { Paper } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 
 interface IPieGraphProps {
+    titulo: string;
     data: { label: string; value: number }[];
     height: number;
     width: string | number;
     valueFormatter: (item: { value: number }) => string;
 }
 
-export const PieGraph: React.FC<IPieGraphProps> = ({ data, height = 200, width, valueFormatter }) => {
+export const PieGraph: React.FC<IPieGraphProps> = ({ titulo, data, height = 200, width, valueFormatter }) => {
     return (
         <Paper sx={{ p: 2, width: width  }} elevation={3}>
+            <Typography variant='h6' gutterBottom sx={{ color: 'text.secondary' }}>{titulo}</Typography>
             <PieChart
                 series={[
                     {

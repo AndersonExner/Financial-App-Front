@@ -43,9 +43,9 @@ export const Dashboard = () => {
                 <InfoPaper title="Despesas" value="R$ 2.250,00" icon={ArrowDownwardRoundedIcon} iconColor="red" />
             </Box>
 
-            <Box display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" flexWrap="wrap" mt={4}>
-                <PieGraph data={receitasPercentual} height={300} width={'45%'} valueFormatter={valueFormatter} />
-                <PieGraph data={despesasPercentual} height={300} width={'45%'} valueFormatter={valueFormatter} />
+            <Box display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" flexWrap="wrap" mt={2}>
+                <PieGraph titulo={"Receitas"} data={receitasPercentual} height={300} width={'45%'} valueFormatter={valueFormatter} />
+                <PieGraph titulo={"Despesas"} data={despesasPercentual} height={300} width={'45%'} valueFormatter={valueFormatter} />
             </Box>
         </>
     );
