@@ -13,7 +13,7 @@ export const InfoPaper: React.FC<IInfoPaperProps> = ({ title, value, icon: IconC
     const theme = useTheme();
 
     return (
-        <Paper elevation={3} sx={{ padding: 3, width: '100%', maxWidth: theme.spacing(35) }} square={false}>
+        <Paper elevation={3} sx={{ padding: 2, width: '100%', maxWidth: theme.spacing(50) }} square={false}>
             <Box
                 sx={{
                     display: 'flex',

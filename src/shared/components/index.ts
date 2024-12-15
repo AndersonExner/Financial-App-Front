@@ -1,2 +1,2 @@
-export * from './appMenu/AppMenu';
-export * from './topBar/TopBar';
+export * from './AppMenu/AppMenu';
+export * from './TopBar/TopBar';

@@ -2,7 +2,7 @@ import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon,
 import React from 'react';
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
 import { useAppMenuContext, useAppThemeContext } from '../../contexts';
-import { TopBar } from '../topBar/TopBar';
+import { TopBar } from '../TopBar/TopBar';
 
 interface IAppMenuItemProps {
     label: string;

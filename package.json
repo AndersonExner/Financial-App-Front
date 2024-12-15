@@ -8,6 +8,7 @@
     "@fontsource/roboto": "^5.1.0",
     "@mui/icons-material": "^6.1.10",
     "@mui/material": "^6.1.10",
+    "@mui/x-charts": "^7.23.2",
     "cra-template-typescript": "1.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -39,8 +40,8 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
     "@types/react": "^19.0.1",
-    "@types/react-dom": "^19.0.1",
-    "@babel/plugin-proposal-private-property-in-object": "^7.16.7"
+    "@types/react-dom": "^19.0.1"
   }
 }
