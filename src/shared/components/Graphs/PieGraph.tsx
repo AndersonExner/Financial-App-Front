@@ -18,6 +18,8 @@ export const PieGraph: React.FC<IPieGraphProps> = ({ data, height = 200, width, 
                         data: data,
                         highlightScope: { fade: 'global', highlight: 'item' },
                         faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                        innerRadius: 50,
+                        outerRadius: 120,
                         valueFormatter: valueFormatter
                     },
                 ]}
