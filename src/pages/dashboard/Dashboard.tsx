@@ -2,9 +2,8 @@ import React from "react";
 import { Box } from "@mui/material";
 import { ArrowUpwardRounded as ArrowUpwardRoundedIcon, AccountBalanceRounded as AccountBalanceRoundedIcon, ArrowDownwardRounded as ArrowDownwardRoundedIcon } from '@mui/icons-material';
 
-
+import { InfoPaper } from "../../shared/components/infoPaper/InfoPaper";
 import { PieGraph } from "../../shared/components/Graphs/PieGraph";
-import { InfoPaper } from "../../shared/components/InfoPaper/InfoPaper";
 
 const receitas = [
     { label: 'Salário', value: 1500 },
