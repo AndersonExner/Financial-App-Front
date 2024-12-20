@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { useAppMenuContext } from "../shared/contexts";
 import { Dashboard } from "../pages/Dashboard/Dashboard";
 import { ConstructionPage } from "../pages/Construction/Construction";
+import { Payments } from "../pages/Payments/Payments";
 
 export const AppRoutes = () => {
     const { setAppMenuOptions } = useAppMenuContext();
@@ -36,7 +37,7 @@ export const AppRoutes = () => {
     return (
         <Routes>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/payments" element={<ConstructionPage />} />
+            <Route path="/payments" element={<Payments />} />
             <Route path="/expenses" element={<ConstructionPage />} />
             <Route path="/settings" element={<ConstructionPage />} />
 
