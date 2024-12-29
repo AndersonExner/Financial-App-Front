@@ -114,7 +114,7 @@ export const AppMenu: React.FC<IAppMenuProps> = ({ children }) => {
                 sx={{ transition: theme.transitions.create(['margin'], { easing: theme.transitions.easing.sharp, duration: theme.transitions.duration.leavingScreen }) }}
                 p={4}
             >
-                <TopBar />
+                <TopBar userName="Teste" />
                 {children}
             </Box>
         </>

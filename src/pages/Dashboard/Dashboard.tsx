@@ -1,9 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
-import { ArrowUpwardRounded as ArrowUpwardRoundedIcon, AccountBalanceRounded as AccountBalanceRoundedIcon, ArrowDownwardRounded as ArrowDownwardRoundedIcon } from '@mui/icons-material';
+import ArrowUpwardRoundedIcon from "@mui/icons-material/ArrowUpwardRounded";
+import AccountBalanceRoundedIcon from "@mui/icons-material/AccountBalanceRounded";
+import ArrowDownwardRoundedIcon from "@mui/icons-material/ArrowDownwardRounded";
+import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 
-import { InfoPaper } from "../../shared/components/infoPaper/InfoPaper";
-import { PieGraph } from "../../shared/components/Graphs/PieGraph";
+import { InfoPaper, PieGraph } from "../../shared/components";
 
 const receitas = [
     { label: 'Salário', value: 1500 },
@@ -38,10 +40,10 @@ export const Dashboard = () => {
     return (
         <>
             <Box display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" flexWrap="wrap">
-                <InfoPaper title="Saldo Acumulado" value="R$ 1.250,00" icon={AccountBalanceRoundedIcon} iconColor="blue" />
                 <InfoPaper title="Receitas" value="R$ 3.500,00" icon={ArrowUpwardRoundedIcon} iconColor="green" />
                 <InfoPaper title="Despesas" value="R$ 2.250,00" icon={ArrowDownwardRoundedIcon} iconColor="red" />
-                <InfoPaper title="Resultado Mês" value="R$ 2.250,00" icon={ArrowDownwardRoundedIcon} iconColor="red" />
+                <InfoPaper title="Resultado Mês" value="R$ 1.250,00" icon={AccountBalanceWalletIcon} iconColor="gray" />
+                <InfoPaper title="Saldo Acumulado" value="R$ 5.250,00" icon={AccountBalanceRoundedIcon} iconColor="blue" />
             </Box>
 
             <Box display="flex" flexDirection="row" justifyContent="space-between" alignItems="center" flexWrap="wrap" mt={2}>

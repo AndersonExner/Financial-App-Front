@@ -4,11 +4,16 @@ import Icon from "@mui/material/Icon";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
 import Toolbar from "@mui/material/Toolbar";
-import { useTheme } from "@mui/material/styles";
+import Typography from "@mui/material/Typography";
 
+import { useTheme } from "@mui/material/styles";
 import { useAppMenuContext } from "../../contexts";
 
-export const TopBar: React.FC = () => {
+interface TopBarProps {
+    userName: string;
+}
+
+export const TopBar: React.FC<TopBarProps> = ({ userName }) => {
     const theme = useTheme();
     const [search, setSearch] = useState('');
 
@@ -37,6 +42,11 @@ export const TopBar: React.FC = () => {
                         borderRadius: '4px',
                     }}
                 />
+            </Box>
+            <Box sx={{ display: "flex", alignItems: "center", ml: 4 }}>
+                <Typography variant="h6" sx={{ color: "text.secondary" }}>
+                    Bem-vindo(a), {userName}.
+                </Typography>
             </Box>
         </Toolbar>
     );
