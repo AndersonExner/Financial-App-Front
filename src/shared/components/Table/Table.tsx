@@ -14,11 +14,11 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 export interface ITableValuesItem {
-    id: number,
-    description: string,
-    value: number,
-    date: string
-};
+    id: number;
+    description: string;
+    value: number;
+    date: string;
+}
 
 interface TableValuesProps {
     headers: string[];
@@ -42,6 +42,10 @@ export const TableValues: React.FC<TableValuesProps> = ({ headers, data, onEdit,
 
     const paginatedData = data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
 
+    const formatCurrency = (value: number) => {
+        return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+    };
+
     return (
         <Box sx={{ display: 'flex', flexDirection: 'column', mt: 2 }}>
             <TableContainer component={Paper} sx={{ flex: 1, overflowY: 'auto' }}>
@@ -53,7 +57,7 @@ export const TableValues: React.FC<TableValuesProps> = ({ headers, data, onEdit,
                                     key={index}
                                     sx={{
                                         fontWeight: 'bold',
-                                        backgroundColor: '#f5f5f5',
+                                        backgroundColor: 'primary.main',
                                         padding: '8px',
                                         textAlign: 'center'
                                     }}
@@ -64,7 +68,7 @@ export const TableValues: React.FC<TableValuesProps> = ({ headers, data, onEdit,
                             <TableCell
                                 sx={{
                                     fontWeight: 'bold',
-                                    backgroundColor: '#f5f5f5',
+                                    backgroundColor: 'primary.main',
                                     textAlign: 'right'
                                 }}
                             >
@@ -75,16 +79,23 @@ export const TableValues: React.FC<TableValuesProps> = ({ headers, data, onEdit,
                     <TableBody>
                         {paginatedData.length > 0 ? (
                             paginatedData.map((item) => (
-                                <TableRow key={item.id}>
+                                <TableRow
+                                    key={item.id}
+                                    sx={{
+                                        '&:hover': {
+                                            backgroundColor: '#f5f5f5',
+                                        },
+                                    }}
+                                >
                                     <TableCell sx={{ padding: '5px', textAlign: 'center' }}>{item.description}</TableCell>
-                                    <TableCell sx={{ padding: '5px', textAlign: 'center' }}>{item.value}</TableCell>
+                                    <TableCell sx={{ padding: '5px', textAlign: 'center' }}>{formatCurrency(item.value)}</TableCell>
                                     <TableCell sx={{ padding: '5px', textAlign: 'center' }}>{item.date}</TableCell>
                                     <TableCell sx={{ padding: '5px', textAlign: 'right' }}>
                                         <IconButton onClick={() => onEdit(item.id)} color="primary">
-                                            <EditIcon />
+                                            <EditIcon color="action" />
                                         </IconButton>
                                         <IconButton onClick={() => onDelete(item.id)} color="secondary">
-                                            <DeleteIcon />
+                                            <DeleteIcon color="error" />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
