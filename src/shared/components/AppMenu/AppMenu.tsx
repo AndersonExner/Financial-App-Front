@@ -1,8 +1,18 @@
-import { Avatar, Box, Divider, Drawer, Icon, List, ListItemButton, ListItemIcon, ListItemText, useMediaQuery, useTheme } from '@mui/material';
-import React from 'react';
-import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom';
-import { useAppMenuContext, useAppThemeContext } from '../../contexts';
-import { TopBar } from '../TopBar/TopBar';
+import React from "react";
+import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
+import Drawer from "@mui/material/Drawer";
+import Icon from "@mui/material/Icon";
+import List from "@mui/material/List";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
+import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
+
+import { useAppMenuContext, useAppThemeContext } from "../../contexts";
+import { TopBar } from "../TopBar/TopBar";
 
 interface IAppMenuItemProps {
     label: string;

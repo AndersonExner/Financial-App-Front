@@ -1,6 +1,7 @@
 import React from "react";
-import { PieChart } from '@mui/x-charts/PieChart';
-import { Paper, Typography } from "@mui/material";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import { PieChart } from "@mui/x-charts/PieChart";
 
 interface IPieGraphProps {
     titulo: string;

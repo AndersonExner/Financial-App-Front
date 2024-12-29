@@ -1,7 +1,17 @@
 import React, { useState } from "react";
-import { Box, Table, TableHead, TableRow, TableCell, TableBody, Typography, Paper, TableContainer, IconButton, TablePagination } from "@mui/material";
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
+import Box from "@mui/material/Box";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
+import TableBody from "@mui/material/TableBody";
+import Typography from "@mui/material/Typography";
+import Paper from "@mui/material/Paper";
+import TableContainer from "@mui/material/TableContainer";
+import IconButton from "@mui/material/IconButton";
+import TablePagination from "@mui/material/TablePagination";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export interface ITableValuesItem {
     id: number,

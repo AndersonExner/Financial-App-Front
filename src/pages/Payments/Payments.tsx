@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Box, FormControl, InputLabel, OutlinedInput, Button, Paper, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Button from "@mui/material/Button";
+
 import { TableValues, ITableValuesItem } from "../../shared/components/Table/Table";
 
 const initialData: ITableValuesItem[] = [

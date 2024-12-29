@@ -1,7 +1,12 @@
-import React, { useState } from 'react';
-import { Box, Icon, IconButton, TextField, Toolbar } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import { useAppMenuContext } from '../../contexts';
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import Icon from "@mui/material/Icon";
+import IconButton from "@mui/material/IconButton";
+import TextField from "@mui/material/TextField";
+import Toolbar from "@mui/material/Toolbar";
+import { useTheme } from "@mui/material/styles";
+
+import { useAppMenuContext } from "../../contexts";
 
 export const TopBar: React.FC = () => {
     const theme = useTheme();

@@ -1,6 +1,9 @@
-import React from 'react';
-import { Box, Paper, Typography, useTheme } from '@mui/material';
-import { SvgIconComponent } from '@mui/icons-material';
+import React from "react";
+import Box from "@mui/material/Box";
+import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
+import { useTheme } from "@mui/material/styles";
+import { SvgIconComponent } from "@mui/icons-material";
 
 interface IInfoPaperProps {
     title: string;
